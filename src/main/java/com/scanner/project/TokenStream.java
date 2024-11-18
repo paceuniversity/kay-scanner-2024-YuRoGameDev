@@ -1,4 +1,4 @@
-
+package com.scanner.project;
 // Implementation of the Scanner for JAY
 
 // This code DOES NOT implement a scanner for JAY yet. You have to complete

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+
 public class ScannerTest {
 
     private static final String file1 = "src/test/java/com/scanner/project/test.kay";
@@ -13,19 +14,13 @@ public class ScannerTest {
      */
     private TokenStream setup(int currLine) {
         TokenStream tks = new TokenStream(file1);
-        int counter =1;
         for (int i = 0; i < currLine; i++) {
-
-            Token tk = tks.nextToken();
-            if (tk.getValue().isEmpty()) {
-                continue;
-            }
-            System.out.println("Token " + counter++ + " - Type: " + tk.getType() + " - Value: " + tk.getValue());
+            tks.nextToken();
         }
 
         return tks;
     }
-
+    
     @Test
     public void boolIsKeyword() {
         TokenStream tks = setup(0);
@@ -645,7 +640,7 @@ public class ScannerTest {
         assertEquals("Operator", tks.nextToken().getType());
         assertEquals("Literal", tks.nextToken().getType());
     }
-
+    
     @Test
     public void secretTest3() {
         TokenStream tks = setup(111);
@@ -724,5 +719,5 @@ public class ScannerTest {
         assertEquals("Separator", tks.nextToken().getType());
         assertEquals("Separator", tks.nextToken().getType());
     }
-
+    
 }
